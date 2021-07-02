@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla JavaScript</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="wrap">
+        <h3>Wedding Products</h3>
+        <p>Vanilla JavaScript Demo</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <!-- filters section -->
+        <section id="filters">
+          <!-- catogory filter -->
+          <div id="catogory-filter">
+            <div class="filter-label">Category</div>
+            <select id="category" class="form-select">
+              <option value="0">All Hires</option>
+              <option value="1">ARCHES & BALLOON/FLOWER STANDS</option>
+              <option value="2">CARTS</option>
+              <option value="3">PARTY HIRE</option>
+              <option value="5">TABLEWARE</option>
+              <option value="25">LED LETTER & NUMBER LIGHTS</option>
+              <option value="11">CENTREPIECE HIRE - CANDLES & VASES</option>
+              <option value="15">BACKDROPS & FLOWER WALLS</option>
+              <option value="21">CAKE & DESSERT STANDS</option>
+              <option value="18">TABLES & CONSOLES</option>
+              <option value="12">PLINTHS</option>
+              <option value="27">TABLECLOTHS</option>
+              <option value="16">CHAIRS</option>
+              <option value="20">WOODEN CRATES</option>
+              <option value="51">MIRRORS</option>
+              <option value="14">WEDDING HIRE</option>
+              <option value="10">BABY SHOWER</option>
+              <option value="47">Luxe Dream Wedding Flowers</option>
+              <option value="49">Luxe Dream Floral Studio</option>
+            </select>
+            <button class="button">Show</button>
+          </div>
+
+          <!-- price filter -->
+          <div id="price-filter">
+            <div class="filter-label">Price</div>
+            <select id="price" class="form-select">
+              <option value="0">All</option>
+              <option value="100">0 - 100</option>
+              <option value="500">101 - 500</option>
+              <option value="1000">501 - 1000</option>
+              <option value="1001">> 1000</option>
+            </select>
+            <button class="button">Filter</button>
+          </div>
+
+          <!-- ordering filter -->
+          <div id="ordering-filter">
+            <button class="button ordering">
+              Ascending <span class="arrow arrow-up"></span>
+            </button>
+            <button class="button ordering">
+              Descending <span class="arrow arrow-down"></span>
+            </button>
+          </div>
+        </section>
+
+        <!-- display section -->
+        <section id="display">
+          <div class="display-container">
+            <!-- display item -->
+            <div class="display-item">
+              <a href="details.html">
+                <img
+                  src="https://storage.googleapis.com/luxe_media/wwwroot/Images/ProductImages/164(1).jpg"
+                  alt="image"
+                />
+                <div class="item-description">
+                  <h6>Product Name</h6>
+                  <p>$ price</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+/* 变量 */
+:root{
+  --first-color:#bad7df;
+  --second-color:#FFE2E2;
+  --third-color:#F6F6F6;
+  --fourth-color:#99DDCC;
+}
+
+
+/* general css */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Playfair Display", serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: #999;
+}
+
+.wrap {
+  width: 85%;
+  margin: auto;
+}
+
+.button {
+  border: none;
+  background-color: var(--first-color);
+  color: #f6f6f6;
+  margin-left: 6px;
+  padding: 8px 15px;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: var(--fourth-color);
+}
+
+/* header */
+#header {
+  background-color: var(--first-color);
+  color: #f6f6f6;
+  border-bottom: 5px solid var(--second-color);
+  min-height: 120px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+}
+
+/* filters */
+#filters {
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.filter-label {
+  margin-right: 10px;
+  align-self: center;
+}
+
+#catogory-filter,
+#price-filter,
+#ordering-filter {
+  display: flex;
+  margin-top: 20px;
+}
+
+#category {
+  width: 50%;
+}
+
+/* ordering */
+.ordering {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  width: 6px;
+  margin-left: 10px;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-bottom-color: var(--third-color);
+  cursor: pointer;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-top-color: var(--third-color);
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* display */
+#display {
+  margin: 20px 0 40px;
+}
+
+.display-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border: 2px dashed var(--second-color);
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+@media screen and (max-width: 860px) {
+  .display-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .display-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.display-item {
+  margin: 8px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.display-item:hover {
+  opacity: 0.8;
+}
+
+.display-item img {
+  width: 100%;
+}
+
+.item-description {
+  padding: 4px;
+}
+
+/* details */
+
+.go-home {
+margin-top: 20px;
+}
+
+.item-details {
+  display: flex;
+}
+
+.details-img {
+  width: 30%;
+  margin-right: 20px;
+}
+
+.details-img img{
+  width: 100%;
+}
