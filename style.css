@@ -75,10 +75,14 @@ a:hover {
 }
 
 #category {
-  width: 50%;
+  width: 200px;
 }
 
 /* ordering */
+#sort-by{
+  width: 90%;
+}
+
 .ordering {
   display: flex;
   align-items: center;
@@ -134,7 +138,7 @@ a:hover {
 }
 
 .display-item {
-  margin: 8px;
+  margin: 10px;
   text-align: center;
   min-width: 100px;
 }
@@ -146,6 +150,7 @@ a:hover {
 .display-item img {
   width: 100%;
   height: 200px;
+  border-radius: 10px;
 }
 
 .item-description {
@@ -169,6 +174,7 @@ margin-top: 20px;
 
 .details-img img{
   width: 100%;
+  border-radius: 30px;
 }
 
 .details-content {

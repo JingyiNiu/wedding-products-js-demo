@@ -1,4 +1,4 @@
-loadData();
+//loadData();
 
 function loadData() {
   products = [];
