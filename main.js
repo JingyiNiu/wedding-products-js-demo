@@ -16,11 +16,11 @@ function renderData() {
         "https://storage.googleapis.com/luxe_media/wwwroot/" +
         i.productMedia[0].url;
       let urlParams =
-        "./detail.html?prodId=" + i.prodId + "&prodTitle=" + i.title;
+        "./details.html?prodId=" + i.prodId + "&prodTitle=" + i.title;
 
       productItem += `
             <div class="display-item" >
-            <a href="details.html">
+            <a href="${urlParams}">
               <img
                 src="${imgUrl}"
                 alt="image"
