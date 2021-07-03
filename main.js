@@ -1,5 +1,6 @@
-//loadData();
+loadData();
 
+// load all data from data.js and render data into index.html
 function loadData() {
   products = [];
   for (let product of rawdata) {
@@ -8,6 +9,23 @@ function loadData() {
   renderData();
 }
 
+// category filter
+function filterCategory() {
+  const category = document.getElementById("category").value; // get category value
+  products = [];// initialize products array
+  if (category == "0") { // if category value is 0, load all data; 
+    loadData();
+  } else { // else, add new items to products array depending on their category ID
+    for (let product of rawdata) {
+      if (product.categoryId == category) {
+        products.push(product);
+      }
+    }
+    renderData();
+  }
+}
+
+// render items inside products array to index.html
 function renderData() {
   let productItem = "";
   for (let i of products) {
