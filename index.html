@@ -55,28 +55,28 @@
               <option value="47">Luxe Dream Wedding Flowers</option>
               <option value="49">Luxe Dream Floral Studio</option>
             </select>
-            <button class="button" onClick=filterCategory()>Show</button>
+            <button class="button" onclick=filterCategory()>Show</button>
           </div>
 
           <!-- price filter -->
           <div id="price-filter">
             <div class="filter-label">Price</div>
             <select id="price" class="form-select">
-              <option value="0">All</option>
-              <option value="100">0 - 100</option>
-              <option value="500">101 - 500</option>
-              <option value="1000">501 - 1000</option>
-              <option value="1001">> 1000</option>
+              <option value="all">All</option>
+              <option value="0-100">0 - 100</option>
+              <option value="101-500">101 - 500</option>
+              <option value="501-1000">501 - 1000</option>
+              <option value="1000+">> 1000</option>
             </select>
-            <button class="button">Filter</button>
+            <button class="button"  onclick=filterPrice()>Filter</button>
           </div>
 
           <!-- ordering filter -->
           <div id="ordering-filter">
-            <select id="sort-by" class="form-select">
-              <option value="0">Sort by</option>
-              <option value="100">Price Low to High</option>
-              <option value="500">Price High to Low</option>
+            <select id="sort-by" class="form-select" onchange=sortBy()>
+              <option value="default">Sort by</option>
+              <option value="lowtohigh">Price Low to High</option>
+              <option value="hightolow">Price High to Low</option>
             </select>
             <!-- <button class="button ordering">
               Ascending <span class="arrow arrow-up"></span>

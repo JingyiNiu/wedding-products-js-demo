@@ -6,29 +6,67 @@ function loadData() {
   for (let product of rawdata) {
     products.push(product);
   }
-  renderData();
+  renderData(products);
 }
 
 // category filter
 function filterCategory() {
-  const category = document.getElementById("category").value; // get category value
-  products = [];// initialize products array
-  if (category == "0") { // if category value is 0, load all data; 
+  const category = document.querySelector("#category").value; // get category value
+  products = []; // initialize products array
+  if (category == "0") {
+    // if category value is 0, load all data;
     loadData();
-  } else { // else, add new items to products array depending on their category ID
+  } else {
+    // else, add new items to products array depending on their category ID
     for (let product of rawdata) {
       if (product.categoryId == category) {
         products.push(product);
       }
     }
-    renderData();
+    renderData(products);
   }
 }
 
+// price filter
+function filterPrice() {
+  const priceRange = document.querySelector("#price").value;
+  productsFiltered = [];
+  for (let product of products) {
+    switch (priceRange) {
+      case "all":
+        productsFiltered.push(product);
+        break;
+      case "0-100":
+        if (product.price <= 100) {
+          productsFiltered.push(product);
+        }
+        break;
+      case "101-500":
+        if (product.price > 100 && product.price <= 500) {
+            productsFiltered.push(product);
+          }
+        break;
+      case "501-1000":
+        if (product.price > 500 && product.price <= 1000) {
+            productsFiltered.push(product);
+          }
+        break;
+      case "1000+":
+        if (product.price > 1000) {
+            productsFiltered.push(product);
+          }
+        break;
+      default:
+        break;
+    }
+  }
+  renderData(productsFiltered);
+}
+
 // render items inside products array to index.html
-function renderData() {
+function renderData(productsArray) {
   let productItem = "";
-  for (let i of products) {
+  for (let i of productsArray) {
     if (i.productMedia[0] && i.productMedia[0].url) {
       let imgUrl =
         "https://storage.googleapis.com/luxe_media/wwwroot/" +
@@ -50,6 +88,12 @@ function renderData() {
             </a>
           </div>`;
     }
-    document.getElementById("fromData").innerHTML = productItem;
+    document.querySelector("#fromData").innerHTML = productItem;
   }
+}
+
+// sort by price low to high
+function sortBy() {
+  const sortBy = document.querySelector("#sort-by").value;
+  console.log(sortBy);
 }
