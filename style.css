@@ -41,6 +41,21 @@ a:hover {
   background-color: var(--fourth-color);
 }
 
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background: var(--third-color);
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: var(--second-color);
+}
+
 /* header */
 #header {
   background-color: var(--first-color);
@@ -180,3 +195,4 @@ margin-top: 20px;
 .details-content {
 margin: 20px;
 }
+
