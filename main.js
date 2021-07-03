@@ -25,7 +25,7 @@ function filterCategory() {
     }
     renderData(products);
   }
-  resetFilters()
+  resetFilters();
 }
 
 // price filter
@@ -62,7 +62,12 @@ function filterPrice() {
         break;
     }
   }
-  renderData(productsFiltered); // render html with new array
+  if (productsFiltered.length == 0) {
+    console.log("empty products array");
+    renderData(productsFiltered);
+  } else {
+    renderData(productsFiltered); // render html with new array
+  }
 }
 
 // sort by price low to high
@@ -74,37 +79,40 @@ function sortBy() {
 // render items inside products array to index.html
 function renderData(productsArray) {
   let productItem = "";
-  for (let i of productsArray) {
-    if (i.productMedia[0] && i.productMedia[0].url) {
-      let imgUrl =
-        "https://storage.googleapis.com/luxe_media/wwwroot/" +
-        i.productMedia[0].url;
-      let urlParams =
-        "./details.html?prodId=" + i.prodId + "&prodTitle=" + i.title;
+  if (productsArray.length == 0) {
+    document.querySelector("#fromData").innerHTML = "No Match Found";
+  } else {
+    for (let i of productsArray) {
+      if (i.productMedia[0] && i.productMedia[0].url) {
+        let imgUrl =
+          "https://storage.googleapis.com/luxe_media/wwwroot/" +
+          i.productMedia[0].url;
+        let urlParams =
+          "./details.html?prodId=" + i.prodId + "&prodTitle=" + i.title;
 
-      productItem += `
-              <div class="display-item" >
-              <a href="${urlParams}">
-                <img
-                  src="${imgUrl}"
-                  alt="image"
-                />
-                <div class="item-description">
-                  <h6>${i.title}</h6>
-                  <p>$ ${i.price}</p>
-                </div>
-              </a>
-            </div>`;
+        productItem += `
+                  <div class="display-item" >
+                  <a href="${urlParams}">
+                    <img
+                      src="${imgUrl}"
+                      alt="image"
+                    />
+                    <div class="item-description">
+                      <h6>${i.title}</h6>
+                      <p>$ ${i.price}</p>
+                    </div>
+                  </a>
+                </div>`;
+      }
+      document.querySelector("#fromData").innerHTML = productItem;
     }
-    document.querySelector("#fromData").innerHTML = productItem;
   }
 }
 
 // reset price filter and sort-by filter
 function resetFilters() {
-    const priceValue = document.querySelector("#price")
-    const soryByValue = document.querySelector("#sort-by")
-    priceValue.selectedIndex = 0
-    soryByValue.selectedIndex = 0
+  const priceValue = document.querySelector("#price");
+  const soryByValue = document.querySelector("#sort-by");
+  priceValue.selectedIndex = 0;
+  soryByValue.selectedIndex = 0;
 }
-
