@@ -25,16 +25,18 @@ function filterCategory() {
     }
     renderData(products);
   }
+  resetFilters()
 }
 
 // price filter
 function filterPrice() {
-  const priceRange = document.querySelector("#price").value;
-  productsFiltered = [];
+  const priceRange = document.querySelector("#price").value; // get price range value
+  productsFiltered = []; // initialize a new array
   for (let product of products) {
+    // loop through current products array
     switch (priceRange) {
       case "all":
-        productsFiltered.push(product);
+        productsFiltered.push(product); // push products to the new array
         break;
       case "0-100":
         if (product.price <= 100) {
@@ -43,24 +45,30 @@ function filterPrice() {
         break;
       case "101-500":
         if (product.price > 100 && product.price <= 500) {
-            productsFiltered.push(product);
-          }
+          productsFiltered.push(product);
+        }
         break;
       case "501-1000":
         if (product.price > 500 && product.price <= 1000) {
-            productsFiltered.push(product);
-          }
+          productsFiltered.push(product);
+        }
         break;
       case "1000+":
         if (product.price > 1000) {
-            productsFiltered.push(product);
-          }
+          productsFiltered.push(product);
+        }
         break;
       default:
         break;
     }
   }
-  renderData(productsFiltered);
+  renderData(productsFiltered); // render html with new array
+}
+
+// sort by price low to high
+function sortBy() {
+  const sortBy = document.querySelector("#sort-by").value;
+  console.log(sortBy);
 }
 
 // render items inside products array to index.html
@@ -75,25 +83,28 @@ function renderData(productsArray) {
         "./details.html?prodId=" + i.prodId + "&prodTitle=" + i.title;
 
       productItem += `
-            <div class="display-item" >
-            <a href="${urlParams}">
-              <img
-                src="${imgUrl}"
-                alt="image"
-              />
-              <div class="item-description">
-                <h6>${i.title}</h6>
-                <p>$ ${i.price}</p>
-              </div>
-            </a>
-          </div>`;
+              <div class="display-item" >
+              <a href="${urlParams}">
+                <img
+                  src="${imgUrl}"
+                  alt="image"
+                />
+                <div class="item-description">
+                  <h6>${i.title}</h6>
+                  <p>$ ${i.price}</p>
+                </div>
+              </a>
+            </div>`;
     }
     document.querySelector("#fromData").innerHTML = productItem;
   }
 }
 
-// sort by price low to high
-function sortBy() {
-  const sortBy = document.querySelector("#sort-by").value;
-  console.log(sortBy);
+// reset price filter and sort-by filter
+function resetFilters() {
+    const priceValue = document.querySelector("#price")
+    const soryByValue = document.querySelector("#sort-by")
+    priceValue.selectedIndex = 0
+    soryByValue.selectedIndex = 0
 }
+
