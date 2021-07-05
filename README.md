@@ -3,8 +3,8 @@ This is a JavaScript demo created by HTML, CSS, Bootstrap and Vanilla Javascript
 
 ## Screenshots
 <div>
-  <img src="https://github.com/JingyiNiu/wedding-products-js-demo/blob/master/screenshots/index.png" alt="index" width="50%" align="top">
-  <img src="https://github.com/JingyiNiu/wedding-products-js-demo/blob/master/screenshots/details.png" alt="details" width="50%" align="top">
+  <img src="https://github.com/JingyiNiu/wedding-products-js-demo/blob/master/screenshots/index.png" alt="index" width="70%">
+  <img src="https://github.com/JingyiNiu/wedding-products-js-demo/blob/master/screenshots/details.png" alt="details" width="70%">
 </div>
 
 ## Responsive
