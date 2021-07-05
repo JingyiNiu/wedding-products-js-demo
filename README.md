@@ -7,6 +7,4 @@ This is a JavaScript demo created by HTML, CSS, Bootstrap and Vanilla Javascript
 <img src="https://github.com/JingyiNiu/wedding-products-js-demo/blob/master/screenshots/details.png" alt="details">
 
 ## Responsive
-<img src="https://github.com/JingyiNiu/wedding-products-js-demo/blob/master/screenshots/index.responsive1.png" alt="index respinsive1" width="300">
-<img src="https://github.com/JingyiNiu/wedding-products-js-demo/blob/master/screenshots/index.responsive2.png" alt="index respinsive2" width="300">
-<img src="https://github.com/JingyiNiu/wedding-products-js-demo/blob/master/screenshots/details.responsive.png" alt="details respinsive2" width="300">
+<img src="https://github.com/JingyiNiu/wedding-products-js-demo/blob/master/screenshots/index.responsive1.png" alt="index respinsive1" width="300"><img src="https://github.com/JingyiNiu/wedding-products-js-demo/blob/master/screenshots/index.responsive2.png" alt="index respinsive2" width="300"><img src="https://github.com/JingyiNiu/wedding-products-js-demo/blob/master/screenshots/details.responsive.png" alt="details respinsive2" width="300">
