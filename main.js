@@ -117,7 +117,7 @@ function renderData(productsArray) {
           "https://storage.googleapis.com/luxe_media/wwwroot/" +
           i.productMedia[0].url;
         let urlParams =
-          "./details.html?prodId=" + i.prodId + "&prodTitle=" + i.title;
+          "./details.html?prodId=" + i.prodId;
 
         productItem += `
                   <div class="display-item" >
