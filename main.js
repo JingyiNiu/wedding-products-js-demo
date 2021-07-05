@@ -67,38 +67,42 @@ function filterPrice() {
   resetSortByFilter();
 }
 
-// sort by price low to high
-function sortBy() {
-  const sortBy = document.querySelector("#sort-by").value;
-  console.log(sortBy);
+// when ordering filter is changes, trigger this function and pass products array to sort function
+function handleSortArray() {
   const priceValue = document.querySelector("#price");
   if (priceValue.selectedIndex == 0) {
-    // 如果还没有按价格范围来筛选，适用products array
-    if (sortBy == "lowtohigh") {
-      products.sort(function (a, b) {
-        return a.price - b.price;
-      });
-    }
-    if (sortBy == "hightolow") {
-      products.reverse(function (a, b) {
-        return a.price - b.price;
-      });
-    }
-    renderData(products);
+    sort(products);
   } else {
-    // 如果已经筛选过价格范围，适用productsFiltered array
-    if (sortBy == "lowtohigh") {
-      productsFiltered.sort(function (a, b) {
-        return a.price - b.price;
-      });
-    }
-    if (sortBy == "hightolow") {
-      productsFiltered.reverse(function (a, b) {
-        return a.price - b.price;
-      });
-    }
-    renderData(productsFiltered);
+    sort(productsFiltered);
   }
+}
+
+// sort products array accroding to low to high or high to low
+function sort(array) {
+  const sortBy = document.querySelector("#sort-by").value;
+  if (sortBy == "lowtohigh") {
+    lowToHigh(array);
+  } else if (sortBy == "hightolow") {
+    highToLow(array);
+  } else {
+    console.log("something wrong with sort function");
+  }
+}
+
+// sort by price low to high
+function lowToHigh(array) {
+  array.sort(function (a, b) {
+    return a.price - b.price;
+  });
+  renderData(array)
+}
+
+// sort by price high to low
+function highToLow(array) {
+  array.reverse(function (a, b) {
+    return a.price - b.price;
+  });
+  renderData(array)
 }
 
 // render items inside products array to index.html
@@ -145,3 +149,37 @@ function resetSortByFilter() {
   const soryByValue = document.querySelector("#sort-by");
   soryByValue.selectedIndex = 0;
 }
+
+// sort by price low to high
+// function sortBy() {
+//   const sortBy = document.querySelector("#sort-by").value;
+//   console.log(sortBy);
+//   const priceValue = document.querySelector("#price");
+//   if (priceValue.selectedIndex == 0) {
+//     // 如果还没有按价格范围来筛选，适用products array
+//     if (sortBy == "lowtohigh") {
+//       products.sort(function (a, b) {
+//         return a.price - b.price;
+//       });
+//     }
+//     if (sortBy == "hightolow") {
+//       products.reverse(function (a, b) {
+//         return a.price - b.price;
+//       });
+//     }
+//     renderData(products);
+//   } else {
+//     // 如果已经筛选过价格范围，适用productsFiltered array
+//     if (sortBy == "lowtohigh") {
+//       productsFiltered.sort(function (a, b) {
+//         return a.price - b.price;
+//       });
+//     }
+//     if (sortBy == "hightolow") {
+//       productsFiltered.reverse(function (a, b) {
+//         return a.price - b.price;
+//       });
+//     }
+//     renderData(productsFiltered);
+//   }
+// }
