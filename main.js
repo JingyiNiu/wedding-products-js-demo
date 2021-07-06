@@ -12,17 +12,12 @@ function loadData() {
 // category filter
 function filterCategory() {
   const category = document.querySelector("#category").value; // get category value
-  products = []; // initialize products array
   if (category == "0") {
     // if category value is 0, load all data;
     loadData();
   } else {
     // else, add new items to products array depending on their category ID
-    for (let product of rawdata) {
-      if (product.categoryId == category) {
-        products.push(product);
-      }
-    }
+    products = rawdata.filter((product) => product.categoryId == category);
     renderData(products);
   }
   resetPriceFilter();
@@ -32,36 +27,28 @@ function filterCategory() {
 // price filter
 function filterPrice() {
   const priceRange = document.querySelector("#price").value; // get price range value
-  productsFiltered = []; // initialize a new array
-  for (let product of products) {
-    // loop through current products array
-    switch (priceRange) {
-      case "all":
-        productsFiltered.push(product); // push products to the new array
-        break;
-      case "0-100":
-        if (product.price <= 100) {
-          productsFiltered.push(product);
-        }
-        break;
-      case "101-500":
-        if (product.price > 100 && product.price <= 500) {
-          productsFiltered.push(product);
-        }
-        break;
-      case "501-1000":
-        if (product.price > 500 && product.price <= 1000) {
-          productsFiltered.push(product);
-        }
-        break;
-      case "1000+":
-        if (product.price > 1000) {
-          productsFiltered.push(product);
-        }
-        break;
-      default:
-        break;
-    }
+  switch (priceRange) {
+    case "all":
+      productsFiltered = products;
+      break;
+    case "0-100":
+      productsFiltered = products.filter((product) => product.price <= 100);
+      break;
+    case "101-500":
+      productsFiltered = products.filter(
+        (product) => product.price > 100 && product.price <= 500
+      );
+      break;
+    case "501-1000":
+      productsFiltered = products.filter(
+        (product) => product.price > 500 && product.price <= 1000
+      );
+      break;
+    case "1000+":
+      productsFiltered = products.filter((product) => product.price > 1000);
+      break;
+    default:
+      break;
   }
   renderData(productsFiltered); // render html with new array
   resetSortByFilter();
@@ -94,7 +81,7 @@ function lowToHigh(array) {
   array.sort(function (a, b) {
     return a.price - b.price;
   });
-  renderData(array)
+  renderData(array);
 }
 
 // sort by price high to low
@@ -102,7 +89,7 @@ function highToLow(array) {
   array.reverse(function (a, b) {
     return a.price - b.price;
   });
-  renderData(array)
+  renderData(array);
 }
 
 // render items inside products array to index.html
@@ -111,30 +98,29 @@ function renderData(productsArray) {
   if (productsArray.length == 0) {
     document.querySelector("#fromData").innerHTML = "No Match Found";
   } else {
-    for (let i of productsArray) {
-      if (i.productMedia[0] && i.productMedia[0].url) {
+    productsArray.forEach(product => {
+      if (product.productMedia[0] && product.productMedia[0].url) {
         let imgUrl =
           "https://storage.googleapis.com/luxe_media/wwwroot/" +
-          i.productMedia[0].url;
-        let urlParams =
-          "./details.html?prodId=" + i.prodId;
+          product.productMedia[0].url;
+        let urlParams = "./details.html?prodId=" + product.prodId;
 
         productItem += `
                   <div class="display-item" >
-                  <a href="${urlParams}">
-                    <img
-                      src="${imgUrl}"
-                      alt="image"
-                    />
-                    <div class="item-description">
-                      <h6>${i.title}</h6>
-                      <p>$ ${i.price}</p>
-                    </div>
-                  </a>
-                </div>`;
+                    <a href="${urlParams}">
+                      <img
+                        src="${imgUrl}"
+                        alt="image"
+                      />
+                      <div class="item-description">
+                        <h6>${product.title}</h6>
+                        <p>$ ${product.price}</p>
+                      </div>
+                    </a>
+                  </div>`;
       }
       document.querySelector("#fromData").innerHTML = productItem;
-    }
+    });
   }
 }
 
